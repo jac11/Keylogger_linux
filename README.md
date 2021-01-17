@@ -32,6 +32,7 @@
 * the script not run as @reboot so do not set the crontab at @reboot you will git error X server not running
 * if set time every hour the keylogger will run at the time you set  
 * the script use Display environment to work in background by default Display environment set to loop  0 or 1 
+
 <img src = "images/1.png" width=350><img src = "images/2.png" width=350>
 
 ## how to use:-
@@ -50,6 +51,11 @@
 *  set the timer for email by second so if you set after 1 min set 60 second
 
 <img src = "images/3.png" width=350><img src = "images/4.png" width=350>
+
+## log file :-
+* this is log file look like 
+<img src = "images/5.png" width=350><img src = "images/6.png" width=350>
+
 ## Language support :-
 * the code by default encoder is UTF-8 
 * English language 
