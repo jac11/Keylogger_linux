@@ -69,7 +69,7 @@ else:
                  subprocess.call(cron_chmod,shell=True) 
                  croncall = './.shellcron.sh > /dev/null 2>&1 &' 
                  subprocess.Popen(croncall,shell=True) 
-        if os.exists('.shellcron.sh') :
+        if os.path.exists('.shellcron.sh') :
            os.remove('.shellcron.sh')        
                         
     except FileExistsError: 
