@@ -20,7 +20,7 @@
 * grep local IP
 * grep user name
 * grep host name
-* grep ssid 'there interface'
+* grep ssid '3 interface'
 * if run as root will grep WiFi password 
 
 ## background process
