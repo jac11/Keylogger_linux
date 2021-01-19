@@ -73,11 +73,15 @@ try:
     public_ip  = urllib.request.urlopen('http://api.ipify.org').read().decode('utf8')
 except Exception:      
     public_ip = 'None'
-try:
+try:    
+    from subprocess import check_output   
     host_name  = socket.gethostname()
-    host_ip    = socket.gethostbyname(host_name)
+    host_ip   = check_output(['hostname', '--all-ip-addresses']).decode('utf8').replace('\n','')
+    if host_ip == '':
+       host_ip    = 'None'
 except socket.gaierror: 
-    pass       
+    host_name  = 'None'
+    host_ip    = 'None'       
 time_date  = now = datetime.datetime.now()
 os_name    = platform.system()
 os_release = platform.release()
