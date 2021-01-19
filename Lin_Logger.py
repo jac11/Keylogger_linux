@@ -73,8 +73,11 @@ try:
     public_ip  = urllib.request.urlopen('http://api.ipify.org').read().decode('utf8')
 except Exception:      
     public_ip = 'None'
-host_name  = socket.gethostname()
-host_ip    = socket.gethostbyname(host_name)
+try:
+    host_name  = socket.gethostname()
+    host_ip    = socket.gethostbyname(host_name)
+except socket.gaierror: 
+    pass       
 time_date  = now = datetime.datetime.now()
 os_name    = platform.system()
 os_release = platform.release()
